@@ -1,0 +1,134 @@
+<html>
+    <body>
+       <fieldset style="width:600px">
+           <table>
+       <tr><td> Name :- </td><td><input type="text" id="name"></td></tr>
+       <tr><td> English :- </td><td>  <input type="text" id="t1"> </td></tr>
+       <tr><td> Maths :-    </td><td> <input type="text" id="t2"> </td></tr>
+       <tr><td> S.S :-      </td><td> <input type="text" id="t3"> </td></tr>
+       <tr><td> Science :-  </td><td> <input type="text" id="t4"> </td></tr>
+    </table>
+        <input type="button" value="Submit" onclick="fun()"><br>
+   
+    </fieldset>
+    <h4> Result :-</h4>
+    <fieldset> 
+       <table id="table" border="1">
+           <th>Name</th>
+           <th>English</th>
+           <th>Maths</th>
+           <th>S.S</th>
+           <th>Science</th>
+           <th>Total</th>
+           <th>Per(%)</th>
+           <th>Grade</th>
+       </table>
+      <!-- <table>
+
+  <tr><td> Name:</td><td> <input type="text" id="name1" readonly></td></tr>   
+      <tr><td> English:</td><td> <input type="text" id="eng" readonly></td></tr> 
+      <tr><td> Maths:</td><td><input type="text" id="math" readonly></td></tr>
+      <tr><td> S.S:</td><td> <input type="text" id="ss" readonly></td></tr>
+      <tr><td> Science:</td><td> <input type="text" id="sci" readonly></td></tr> 
+      <tr><td>Total : </td><td><input type="text" id="total" readonly></td></tr>    
+      <tr><td>Per(%): </td><td><input type="text" id="per" readonly></td></tr>   
+      <tr><td>Grade : </td><td><input type="text" id="grade" readonly></td></tr>  
+    </table>    -->
+    
+       </fieldset>   
+
+        <script>
+
+        function fun(){
+
+            var grade = "";  
+            var Eng = document.getElementById('t1').value;
+            var M = document.getElementById('t2').value;
+            var SS = document.getElementById('t3').value;
+            var Sci = document.getElementById('t4').value;
+            var total = Eng - (- M) - (- SS) - (- Sci);
+            var ave = total/ 4;      
+            switch(   (ave > 90 && ave <100) ? 1 : 
+                    (ave > 70 && ave < 90) ? 2 : 
+                    (ave > 60 && ave < 70) ? 3 :
+                    (ave > 50 && ave < 60) ? 4 :0 )
+             {
+                        case 1 :grade = "A+";break;
+                        case 2 :grade = "B"; break;
+                        case 3 :grade = "C"; break;
+                        case 4 :grade = "D"; break;
+                        case 0 :grade = "Fail"; break;
+             }
+              
+            /*    document.getElementById('name1').value = document.getElementById('name').value;
+             document.getElementById('eng').value = document.getElementById('t1').value;
+             document.getElementById('math').value = document.getElementById('t2').value;
+             document.getElementById('ss').value = document.getElementById('t3').value;
+             document.getElementById('sci').value = document.getElementById('t4').value;
+             document.getElementById('total').value = total;
+             document.getElementById('per').value = ave;
+             document.getElementById('grade').value = grade;
+
+          document.getElementById('name').value =" ";
+            document.getElementById('t1').value =" ";
+            document.getElementById('t2').value =" ";
+            document.getElementById('t3').value =" ";
+            document.getElementById('t4').value =" ";*/
+
+             var rIndex,
+                table = document.getElementById("table");
+                var newRow = table.insertRow(table.length),
+                    cell1 = newRow.insertCell(0),
+                    cell2 = newRow.insertCell(1),
+                    cell3 = newRow.insertCell(2),
+                    cell4 = newRow.insertCell(3),
+                    cell5 = newRow.insertCell(4),
+                    cell6 = newRow.insertCell(5),
+                    cell7 = newRow.insertCell(6),
+                    cell8 = newRow.insertCell(7)
+                   
+            
+                cell1.innerHTML =  document.getElementById('name').value;;
+                cell2.innerHTML =  document.getElementById('t1').value;
+                cell3.innerHTML = document.getElementById('t2').value;
+                cell4.innerHTML = document.getElementById('t3').value;
+                cell5.innerHTML = document.getElementById('t4').value;;
+                cell6.innerHTML = total;
+                cell7.innerHTML = ave;
+                cell8.innerHTML = grade;
+      
+                selectedRowToInput();
+                document.getElementById('name').value =" ";
+            document.getElementById('t1').value =" ";
+            document.getElementById('t2').value =" ";
+            document.getElementById('t3').value =" ";
+            document.getElementById('t4').value =" "
+        }
+        function selectedRowToInput()
+            {
+                
+                for(var i = 1; i < table.rows.length; i++)
+                {
+                    table.rows[i].onclick = function()
+                    {
+                      // get the seected row index
+                      rIndex = this.rowIndex;
+                      document.getElementById("name").value = this.cells[0].innerHTML;
+                      document.getElementById("t1").value = this.cells[1].innerHTML;
+                      document.getElementById("t2").value = this.cells[2].innerHTML;
+                      document.getElementById("t3").value = this.cells[3].innerHTML;
+                      document.getElementById("t4").value = this.cells[4].innerHTML;
+                      total = this.cells[5].innerHTML;
+                      ave =this.cells[6].innerHTML;
+                      grade =this.cells[7].innerHTML;
+                    };
+                }
+            }
+  
+
+
+           
+        </script>
+
+    </body>
+</html>

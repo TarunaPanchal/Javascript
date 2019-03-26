@@ -1,0 +1,284 @@
+
+<html>
+<head>
+<script>
+window.onload = function() { 
+	document.my_form.onsubmit = function()  { return checkForm(); }
+
+	document.getElementById("firstNameInput").onblur = firstNameValidate; 
+	document.getElementById("AgeInput").onblur = AgeValidate; 
+	document.getElementById("emailInput").onblur = emailValidate; 
+	document.getElementById("phoneInput").onblur = phoneValidate; 
+
+  document.getElementById("addressInput").onblur = addressValidate; 
+	document.my_form.abc.onblur = cityValidate; 
+}  
+
+function firstNameValidate() { 
+
+	if(firstNameInput.value == "") { 
+		document.getElementById("firstNameInputStatus").innerHTML = "Name is required!"; 
+		document.getElementById("firstNameInputStatus").style.display = "block"; 
+		
+		return false; 
+	} else if(!validname(firstNameInput.value)) { 
+		document.getElementById("firstNameInputStatus").innerHTML = "Please enter a valid Name";
+	  document.getElementById("firstNameInputStatus").style.display = "block"; 
+		return false; 
+	} else { 
+		document.getElementById("firstNameInputStatus").style.display = "none"; 
+		return true; 
+	}
+}
+
+function AgeValidate() { 
+
+if(AgeInput.value == "") { 
+	document.getElementById("AgeInputStatus").innerHTML = "Age is required!"; 
+	document.getElementById("AgeInputStatus").style.display = "block"; 
+	
+	return false; 
+} else if(!validage(AgeInput.value)) { 
+	document.getElementById("AgeInputStatus").innerHTML = "Please enter a valid Age";
+	document.getElementById("AgeInputStatus").style.display = "block"; 
+	return false; 
+} else { 
+	document.getElementById("AgeInputStatus").style.display = "none"; 
+	return true; 
+}
+}
+
+
+
+function emailValidate() { 
+
+	if(emailInput.value == "") { 
+		document.getElementById("emailInputStatus").innerHTML = "Email address is required!"; 
+		document.getElementById("emailInputStatus").style.display = "block"; 
+		
+		return false; 
+	} else if(!validEmailAddress(emailInput.value)) { 
+		document.getElementById("emailInputStatus").innerHTML = "Please enter a valid email address"; 
+		document.getElementById("emailInputStatus").style.display = "block"; 
+		return false; 
+	} else { 
+		document.getElementById("emailInputStatus").style.display = "none"; 
+		return true; 
+	}
+}
+
+
+function phoneValidate() { 
+
+if(phoneInput.value == "") { 
+	document.getElementById("phoneInputStatus").innerHTML = "Phone number is required!"; 
+	document.getElementById("phoneInputStatus").style.display = "block"; 
+	
+	return false; 
+} else if(!validphone(phoneInput.value)) { 
+	document.getElementById("phoneInputStatus").innerHTML = "Please enter a valid Phone number"; 
+	document.getElementById("phoneInputStatus").style.display = "block"; 
+	return false; 
+} else { 
+	document.getElementById("phoneInputStatus").style.display = "none"; 
+	return true; 
+}
+}
+
+
+function addressValidate() { 
+
+if(addressInput.value == "") { 
+	document.getElementById("addressInputStatus").innerHTML = "Address is required!"; 
+	document.getElementById("addressInputStatus").style.display = "block"; 
+	
+	return false; 
+} else if(!validaddress(addressInput.value)) { 
+	document.getElementById("addressInputStatus").innerHTML = "Maximum length 23 &  Only Alphabet,digit,space,comma,dot(.),apostrophe(')),hyphen(-)"; 
+	document.getElementById("addressInputStatus").style.display = "block"; 
+	return false; 
+} else { 
+	document.getElementById("addressInputStatus").style.display = "none"; 
+	return true; 
+}
+}
+function cityValidate() { 
+
+var abc = cityInput.options[cityInput.selectedIndex].value; 
+
+if(abc == 0) { 
+document.getElementById("cityInputStatus").innerHTML = "Select any one City!"; 
+document.getElementById("cityInputStatus").style.display = "block"; 
+
+return false; 
+} else { 
+document.getElementById("cityInputStatus").style.display = "none"; 
+return true; 
+}
+}
+
+function checkForm() { 
+
+	var valid = true; 
+	var firstNameInput = document.getElementById("firstNameInput"); 
+	var AgeInput = document.getElementById("AgeInput"); 
+	var emailInput = document.getElementById("emailInput"); 
+	var phoneInput = document.getElementById("phoneInput"); 
+
+	var addressInput = document.getElementById("addressInput"); 
+	var cityInput = document.getElementById("cityInput");
+
+	if(!firstNameValidate()) valid = false;  
+	if(!AgeValidate()) valid = false;
+	if(!emailValidate()) valid = false; 
+	if(!phoneValidate()) valid = false; 
+	
+	if(!addressValidate()) valid = false; 
+	if(!cityValidate()) valid = false; 
+		return valid; 
+}
+function validname(name)
+{
+	var name1 = /^[a-zA-Z]+$/;
+	return name1.test(name);
+}
+function validEmailAddress(email) { 
+
+	var pattern = /^[a-zA-Z\d._]{3,64}\@([a-z0-9]+)\.[a-z]+(.[a-z]+)?$/; 
+	return pattern.test(email); 
+}
+function validage(age)
+{
+	var age1= /^[0-9]+$/;
+	return age1.test(age);
+
+}
+function validphone(phone)
+{
+	var phone1= /^\d{10}$/;
+	return phone1.test(phone);
+
+}
+function validaddress(address)
+{
+	var address1= /^[a-zA-Z0-9\s,.'-]{3,23}$/;
+	return address1.test(address);
+
+}
+</script>
+	
+	<style> 
+
+input[type=text] {
+                        
+												padding: 12px 20px;
+												margin: 8px 0;
+												box-sizing: border-box;
+					 }
+					 select,textarea {
+							 border: 1px solid #ccc;
+							 border-radius: 4px;               
+							 padding: 12px 20px;
+							 margin: 8px 0;    
+					 }
+					 label {
+						 padding: 12px 12px 12px 0;
+						 display: inline-block;
+						}
+						input[type=submit] {
+								 background-color: #4CAF50;
+								 color: white;
+								 padding: 12px 20px;
+								 border: none;
+								 border-radius: 4px;
+								 cursor: pointer;
+								 float: right;
+								 ;
+							 }
+						input[type=submit]:hover {
+								 background-color: #45a049;
+							 }  
+							 span
+							 {
+									 color: brown;
+							 } 
+	
+		.errorHeader { 
+			font-weight: bold; 
+			color: red;
+			/* visibility: hidden; */ 
+			display: none; 
+		}
+	</style>
+</head>	
+
+<body>
+		<form id="my_form" name="my_form" action="#" method="post"> 
+			<fieldset>
+					<legend style="color:brown"> Detail </legend>
+	 <table>
+		 <tr>
+			 <td><label for="firstNameInput">Name : </label> </td>
+			 <td><input type="text"  name="firstNameInput" id="firstNameInput" placeholder="Enter First Name"></td>
+			 <td><span id="firstNameInputStatus" class="errorHeader">First name filed is required!</span></td>
+			</tr>
+			<tr>
+					<td><label for="AgeInput">Age : </label> </td>
+					<td><input type="text"  name="AgeInput" id="AgeInput" placeholder="Enter Age"></td>
+					<td><span id="AgeInputStatus" class="errorHeader">Age filed is required!</span></td>
+				 </tr>
+						
+				
+			<tr>
+				<td>	<label for="emailInput">Email Id : </label> </td>
+				<td><input type="text"  name="emailInput" id="emailInput" placeholder="Enter E-mail Id" ></td>
+				<td><span id="emailInputStatus" class="errorHeader">Email address is required!</span></td>
+			</tr>
+
+			<tr>
+					<td>	<label for="phoneInput">Phone No. : </label> </td>
+					<td><input type="text"  name="phoneInput" id="phoneInput" placeholder="Enter Phone No." ></td>
+					<td><span id="phoneInputStatus" class="errorHeader">Phone number is required!</span></td>
+				</tr>
+
+		
+				
+
+			<tr>
+					<tr>
+							<td>	<label for="addressInput">Address : </label> </td>
+						
+							<td>
+									<textarea id="addressInput" name="addressInput" placeholder="Enter Address" style="height:100px"></textarea>
+					 </td>
+							<td><span id="addressInputStatus" class="errorHeader">Address is required!</span></td>
+						</tr>
+		
+						<tr>
+								<td>	<label for="cityInput">City :</label> </td>
+						
+									
+										<td>
+											 <select id="cityInput">
+													<option value = "0"> Select </option>
+													<option value = "1">Ahmedabad</option>
+													<option value = "2">Delhi</option>
+													<option value = "3">Mumbai</option>
+											 </select>
+										</td>
+								</td>
+								<td><span id="cityInputStatus" class="errorHeader">City is required!</span></td>
+							</tr>
+			
+					<tr>
+					<td></td>
+					<td> 
+			<input type="submit" value="Submit"></td>
+			</tr>
+			</table>
+			</fieldset>
+		</fieldset>
+	</form> 	
+</body>
+</body>
+</html>	

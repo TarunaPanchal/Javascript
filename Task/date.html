@@ -1,0 +1,28 @@
+<html>
+<body>
+<script>
+   var a = new Date();
+   var day = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+   var b = day[a.getDay()];
+    document.write("Today is : "+b +"<br>");
+
+//  var c =a.getTime();
+  // var  c = new Date().toString("hh:mm tt")
+   // document.write("Current Time is:"+c);
+//  document.write("Current Time is :" + a.getHours()+":" + a.getMinutes()+":" + a.getSeconds()); 
+
+//document.write("Current Time is :" + a.toLocaleTimeString('en-US'));
+  //  var hours = a.getHours() > 12 ? a.getHours() - 12 : a.getHours();
+//  hours = hours < 10 ? "0" + hours : hours;
+    
+
+
+        var am_pm = a.getHours() >= 12 ? "PM" : "AM";
+      
+        time = a.getHours() + " "+ am_pm + " : "+  a.getMinutes()+ ": " + a.getSeconds() ;
+        document.write("Current Time is : "+time);
+   	
+</script>
+
+</body>
+</html>

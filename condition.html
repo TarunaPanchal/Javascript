@@ -1,0 +1,29 @@
+<html>
+<body>
+
+<input id="a" value="19"/>
+<button type="button" onclick="fun()"> click </button>
+<p id="p"></p>
+<script>
+   function fun()
+{
+    var a,b;
+   a = document.getElementById("a").value;
+ //  b = (a >= 18 ) ? "yes" : "no";
+
+     if (a>=18)
+      {
+        // document.write("Yes");
+           
+      document.getElementById("p").innerHTML = "Yes";
+   }
+    else
+      {
+       // document.write("No");
+       document.getElementById("p").innerHTML = "No";
+      }
+
+}
+</script>
+</body>
+</html>

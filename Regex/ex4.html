@@ -1,0 +1,31 @@
+<html>
+<body>
+<form>
+   <label> Enter string[one special char,one digit,one capital ,one small] :- 
+   <input type="text" name="x"></label>  
+   <input type="submit">
+</form>
+  <script>
+       var a = document.querySelector('form');
+    a.addEventListener('submit' , function() {
+         
+         return fun(this.x.value);
+
+    });
+
+ function fun(a) {
+ 
+    var b = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W_])/;
+
+  if (a.match(b)) {
+    alert("Valid")
+    return true; 
+  } else {
+    alert( " invalid!" );
+    return false;
+  }
+}
+ 
+  </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<html>
+<body> 
+<script>
+    /*
+var values=[],a=[];
+var temp=0,pos=0;
+document.write("<font face='arial' size='4'>r SORT </font>");
+document.write("<br><br>");
+ for (a=0; a<10; a++) {
+ values.push(Number(prompt("Enter item value at no. " + (a+1))));
+}
+ document.write("<font face='arial' size='4'>Numbers");
+ document.write(" given by the user </font>");
+ document.write("<br><br>");
+ for (a=0;a<10; a++) {
+document.write("<font face='arial' size='4'> " +values[a] + "");
+}
+ 
+function r_sort (A) {
+	var k = Math.max.apply(null, A.map(function(i) {
+	return Math.ceil(Math.log(i)/Math.log(2));
+	}));
+ 
+	for (var d = 0; d < k; ++d) {
+	for (var i = 0, p = 0, b = 1 << d, n = A.length; i < n; ++i) {
+	var o = A[i];
+	if ((o & b) == 0) {
+	A.splice(p++, 0, A.splice(i, 1)[0]);
+	}
+	}
+	}
+	return A;	
+}
+ 
+ r_sort(values);
+ 
+ document.write("<br><br>");
+	 document.write("<font face='arial' size='4'>Sorted List of Numbers </font>");
+	 document.write("<br><br>");
+	 
+ for (a=0; a<10; a++) {
+document.write("<font face='arial' size='4'> " + values[a]+"</font>");
+ }
+ function sort(array, r) {
+  if (array.length === 0) {
+    return array;
+  }
+
+  r = r || 10;
+
+  // Determine minimum and maximum values
+  var minValue = array[0];
+  var maxValue = array[0];
+  for (var i = 1; i < array.length; i++) {
+    if (array[i] < minValue) {
+      minValue = array[i];
+    } else if (array[i] > maxValue) {
+      maxValue = array[i];
+    }
+  }
+
+  // Perform counting sort on each e/digit, starting at the least
+  // significant digit
+  var e = 1;
+  while ((maxValue - minValue) / e >= 1) {
+    array = Radixsort(array, r, e, minValue);
+
+    e *= r;
+  }
+
+  return array;
+}
+
+/**
+ * Stable sorts an array by a particular digit using counting sort.
+ * @param {Array} array The array to sort.
+ * @param {number} r The base/r to use to sort.
+ * @param {number} e The e of the significant digit to sort.
+ * @param {number} minValue The minimum value within the array.
+ * @returns The sorted array.
+ */ /*
+function Radixsort(array, r, e, minValue) {
+  var i;
+  var bucketIndex;
+  var buckets = new Array(r);
+  var output = new Array(array.length);
+
+  // Initialize bucket
+  for (i = 0; i < r; i++) {
+    buckets[i] = 0;
+  }
+
+  // Count frequencies
+  for (i = 0; i < array.length; i++) {
+    bucketIndex = Math.floor(((array[i] - minValue) / e) % r);
+    buckets[bucketIndex]++;
+  }
+
+  // Compute cumulates
+  for (i = 1; i < r; i++) {
+    buckets[i] += buckets[i - 1];
+  }
+
+  // Move records
+  for (i = array.length - 1; i >= 0; i--) {
+    bucketIndex = Math.floor(((array[i] - minValue) / e) % r);
+    output[--buckets[bucketIndex]] = array[i];
+  }
+
+  // Copy back
+  for (i = 0; i < array.length; i++) {
+    array[i] = output[i];
+  }
+
+  return array;
+} */
+debugger;
+
+var numbers = [90, 46, 7, 12, 100, 68];
+document.write("UnSorted Array:" + numbers + "<br>");
+document.write("<br>" + "Radix Sorted Array :");
+var length = numbers.length;
+var buckets = new Array(10);
+
+Clear();
+function Clear() {
+    for (var i = 0; i < 10; i++)
+        buckets[i] = [];
+}
+
+RadixSort();
+function RadixSort() {
+    var maxElement = Math.max.apply(null , numbers);
+    var maxDigits = GetDigitsCount(maxElement);
+    var count = 0;
+    while (count < maxDigits) {
+        CopyToArray();
+        for (var index = 0; index < length; index++) {
+            var tenIndex = Math.pow(10, count);
+            var remNumber = parseInt(numbers[index] / tenIndex, 10);
+            var bucketIndex = remNumber % 10;
+            buckets[bucketIndex].push(numbers[index]);
+        }
+        count++;
+    }
+    for (var i = 0; i < 9; i++) {
+        var arr = buckets[i];
+        var arrLength = arr.length;
+        for (var j = 0; j < arrLength; j++)
+           
+            document.write(arr[j]  + ",");
+    }
+}
+
+function GetDigitsCount(number) {
+    var count = 0;
+    while (number > 0) {
+        number = parseInt(number / 10);
+        count++;
+    }
+    return count;
+}
+
+function CopyToArray() {
+    var k = 0;
+    for (var i = 0; i < 10; i++) {
+        var arr = buckets[i];
+        var arrLength = arr.length;
+        for (var j = 0; j < arrLength; j++) {
+            numbers[k++] = arr[j];
+        }
+        buckets[i] = [];
+    }
+}
+ </script>
+ </body>
+ </html> 

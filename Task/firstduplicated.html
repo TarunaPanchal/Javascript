@@ -1,0 +1,41 @@
+<html>
+    <body>
+        <script>
+            function firstDuplicate(arr)
+            {
+              var dictionary = {};
+
+                for(var i = 0; i < arr.length; i++) 
+                {
+                     if(dictionary[arr[i]] !== undefined)
+                         return arr[i];
+                     else
+                            dictionary[arr[i]] = i;
+                }
+
+              return -1;
+            }
+
+         document.write(firstDuplicate(["d","b","c","a","c","b","d"]));
+
+          /*function getFirstDupe(arr)
+            {
+              var dupe;
+
+                if(arr && arr.forEach)
+                    {
+                      arr.forEach(function(item, index)
+                       {
+                          if(dupe === undefined && arr.indexOf(item) !== index)
+                            {
+                                dupe = item;
+                            }
+                        })
+                    }
+                return dupe;
+            }
+            document.write(getFirstDupe(["d","b","c","a","c","b","d"]));*/
+
+        </script>
+    </body>
+</html>

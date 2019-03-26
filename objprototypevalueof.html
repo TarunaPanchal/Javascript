@@ -1,0 +1,16 @@
+<html>
+<body>
+<script>
+function fun(n) {
+  this.num = n;
+}
+fun.prototype.valueOf = function() {
+  return this.num;
+};
+
+const o = new fun(10);
+
+console.log(o + 3);
+</script>
+</body>
+</html>

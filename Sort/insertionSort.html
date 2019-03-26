@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <script>
+            debugger;
+            var insertarray = [45,30,67,24,16,18,11,3,4];
+            document.write("Unsorted Array :"  +  insertarray + "<br>"+ "<br>");
+            function insertionSort(arr)
+            {
+                for(var i=0;i<arr.length;i++)
+                {
+                    for(var j=0;j<i;j++)
+                    {
+                        if(arr[i]<arr[j])
+                        {
+                            var temp = arr.splice(i,1);
+                            arr.splice(j,0,temp[0]);
+                        }
+                    }
+                }
+                return arr;
+            }
+           document.write("Insertion Sorted Array:" );
+           document.write(insertionSort(insertarray));
+           
+        </script>
+    </body>
+</html>

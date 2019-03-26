@@ -1,0 +1,20 @@
+
+<html>
+<body>
+<script>
+
+
+function findelement(arr, element) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === element) {
+            return true;
+        }
+    }
+    return false;
+}
+arr = ["banana","mango","abc"];
+console.log(findelement(arr, "mango"));
+console.log(findelement(arr, "xyz"));
+</script>
+</body>
+</html>

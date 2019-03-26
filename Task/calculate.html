@@ -1,0 +1,63 @@
+<html>
+    <body>
+            <form action="" name="cal">
+                <table>
+                    <tr>
+                        <td colspan="4"><input type="text" name="enter"></td></tr>
+                    <tr>
+                        <td><input type="button" value="1" name="one" onclick="dis(one.value)"></td>
+                        <td><input type="button" value="2"name="two" onclick="dis(two.value)"></td>
+                        <td><input type="button" value="3" name="three" onclick="dis(three.value)""></td>
+                        <td><input type="button" value="+" name="add" onclick="add1()"></td>
+                    </tr>
+                    <tr>
+                            <td><input type="button" value="4" name="four" onclick="dis(four.value)"></td>
+                            <td><input type="button" value="5" name="five" onclick="dis(five.value)"></td>
+                            <td><input type="button" value="6" name="six" onclick="dis(six.value)"></td>
+                            <td><input type="button" value="-" name="sub"onclick="sub1()"></td>                          
+                        </tr>
+                        <tr>
+                                <td><input type="button" value="7" name="seven" onclick="dis(seven.value)"></td>
+                                <td><input type="button" value="8" name="eight" onclick="dis(eight.value)"></td>
+                                <td><input type="button" value="9" name="night" onclick="dis(night.value)"></td>
+                                <td><input type="button" value="*" name="multi"onclick="multi1() "></td>
+                        </tr>
+                        <tr>
+                                <td><input type="button" value="C" name="c" onclick="cal.enter.value = '' " id ="clear"></td>
+                                <td><input type="button" value="0" name="zero" onclick="dis(zero.value)"></td>
+                                <td><input type="button" value="=" name="equal" onclick="cal.enter.value = eval(cal.enter.value)"></td>
+                                <td><input type="button" value="/" name="div" onclick="div1()"></td>
+                                <td><input type="button" value="%" name="per" onclick="mod1()"></td>
+                        </tr>
+                </table>
+            </form>
+          
+        <script>
+               function dis(n)
+               {
+                   cal.enter.value +=n;
+               }
+               function add1()
+               {
+                   cal.enter.value +="+";
+               }
+               function sub1()
+               {
+                   cal.enter.value +="-";
+               }
+               function multi1()
+               {
+                   cal.enter.value +="*";
+               }
+               function div1()
+               {
+                   cal.enter.value +="/";
+               }
+               function mod1()
+               {
+                   cal.enter.value +="%";
+               }
+             
+        </script>
+    </body>
+</html>

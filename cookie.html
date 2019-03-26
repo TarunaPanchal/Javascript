@@ -1,0 +1,22 @@
+<html>
+<body>
+   <form name="f" action="">
+     Enter:<input type="text" name="name1">
+     <input type="button" value="Cookie" onclick="fun()">
+   </form>
+<script>
+     function fun()
+        {
+            if(document.f.name1.value == "")
+              {
+                alert("Please enter");
+               return;
+              }      
+            v = escape(document.f.name1.value)+";";
+            document.cookie = "name="+v;
+            document.write("cookie : "+ "name=" +v);   
+        }   
+
+</script>
+</body>
+</html>

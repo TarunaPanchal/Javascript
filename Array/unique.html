@@ -1,0 +1,18 @@
+<html>
+<body>
+  <script>
+         
+   function fun(arr) {
+    var result = [];
+    arr.forEach(function (d) {
+        if (result.indexOf(d) === -1)
+            result.push(d);
+    });
+    document.write(result);
+}
+
+var f = fun([1, 2, 3, 1, 2, 1, 4]);  
+   </script>
+
+</body>
+</html>

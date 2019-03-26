@@ -1,0 +1,32 @@
+<html>
+<body>
+   <form>
+   <label> Enter Phone No. :- 
+   <input type="text" name="phn"></label>  
+   <input type="submit">
+</form>
+<script>
+  
+    var a = document.querySelector('form');
+    a.addEventListener('submit' , function() {
+         
+         return fun(this.phn.value);
+
+    });
+
+ function fun(phNo) {
+  //var phRE = /^\d{10}$/; 
+    var phRE = /\+91\-\d{10}$/;
+  if (phNo.match(phRE)) {
+    alert("Valid")
+    return true; 
+  } else {
+    alert( "The phone number entered is invalid!" );
+    return false;
+  }
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+<body>
+<script>
+
+class student {
+     constructor(fname,lname,age,no)
+      {
+           this.fname= fname;
+           this.lname =lname;  
+         this.age = age;
+         this.no = no;
+      }
+   detail()
+     {  
+         console.log(' Hii Name :' + this.fname +' Lname : ' + this.lname + ' Age : ' + this.age +' No :'+ this.no + '.');
+
+     }
+
+
+
+}
+
+class tech extends student {
+          constructor(fname,lname,age,no,std,sub)
+              {
+                   super(fname,lname,age,no);
+                   this.std =std;
+                   this.subobj = sub;
+              }
+
+
+  get sub()
+     {
+           return this.subobj;
+      }
+  set sub(newsub)
+     {
+         this.subobj = newsub;
+     }
+}
+
+var a = new tech('abc','xyz',20,704158,7,'English');
+a.detail();
+console.log(a.std);
+console.log(a.sub);
+console.log("Change subject Name is :");
+a.sub = 'Hindi';
+console.log(a.sub);
+
+</script>
+</body>
+</html>
+

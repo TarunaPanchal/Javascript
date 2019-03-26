@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <script>
+            uniqueString = "";
+            function findNumberOfUniqueChar(testString) {
+        var numChar = 0,
+            uniqueChar = 0;
+        for (pos = 0; pos < testString.length; pos++) {
+            var newLookFor = "";
+            for (pos2 = 0; pos2 <= pos; pos2++) {
+                if (testString.charAt(pos) == testString.charAt(pos2)) {
+                    numChar += 1;
+                }
+            }
+            if (numChar == 1) {
+                uniqueChar += 1;
+                uniqueString = uniqueString + " " + testString.charAt(pos)
+            }
+            numChar = 0;
+        }
+        return uniqueChar;
+       
+    }
+    var testString = prompt("Give me a string", "");
+findNumberOfUniqueChar(testString);
+document.write("String is :" +testString + "<br>"  + "<br>" + "Unique :- "+uniqueString);
+
+        </script>
+    </body>
+</html>

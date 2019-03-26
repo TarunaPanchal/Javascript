@@ -1,0 +1,251 @@
+
+<html>
+   <head>
+       <style>
+           
+            input[type=text] {
+                        
+                         padding: 12px 20px;
+                         margin: 8px 0;
+                         box-sizing: border-box;
+            }
+            select,textarea {
+                border: 1px solid #ccc;
+                border-radius: 4px;               
+                padding: 12px 20px;
+                margin: 8px 0;    
+            }
+            label {
+              padding: 12px 12px 12px 0;
+              display: inline-block;
+             }
+             input[type=submit] {
+                  background-color: #4CAF50;
+                  color: white;
+                  padding: 12px 20px;
+                  border: none;
+                  border-radius: 4px;
+                  cursor: pointer;
+                  float: right;
+                  ;
+                }
+             input[type=submit]:hover {
+                  background-color: #45a049;
+                }  
+                p
+                {
+                    color: brown;
+                }   
+                textarea {
+                border: 1px solid #ccc;
+                border-radius: 4px;               
+                padding: 12px 20px;
+                margin: 8px 0;    
+            }       
+       </style>
+   </head>
+    <body>  
+         <p id="p" style="font-size:150%"></p>
+        <form name="frm" onsubmit="return fun()"> 
+         <fieldset>
+                <legend style="color:brown"> Detail </legend>
+         <table>
+              <tr>
+              <td><label>Name :</label></td>
+               <td><input type="text" id="t1" name="fname" placeholder="Enter Name"><br></td>
+               <td><p id="p1"></p></td>
+            </tr>
+            <tr>
+              <td><label>Age :</label></td>
+              <td><input type="text" id="t2" name="age" placeholder="Enter Age"></td>
+              <td><p id="p2"></p></td>
+            </tr>
+            <tr>
+                <td><label>Email :</label></td>
+                <td><input type="text" id="t3" name="email" placeholder="Enter Email"></td>
+                <td><p id="p3"></p></td>
+            </tr>
+            <tr>
+                <td><label>Phone No. :</label></td>
+                <td><input type="text" id="t4" name="phn" placeholder="Enter Phone No.."></td>
+                <td><p id="p4"></p></td>
+            </tr>
+            <tr>
+                    <td><label>City :</label></td>
+                    <td>
+                       <select id="t5">
+                          <option value = "0"> Select </option>
+                          <option value = "1">Ahmedabad</option>
+                          <option value = "2">Delhi</option>
+                          <option value = "3">Mumbai</option>
+                       </select>
+                    </td>
+                    <td><p id="p5"></p></td>
+                 </tr>
+             <tr>
+                 <td><label>Address :</label></td>
+                 <td>
+                        <textarea id="t6" name="address" placeholder="Enter Address" style="height:100px"></textarea>
+                 </td>
+                 <td><p id="p6"></p></td>
+             </tr>   
+            <tr>
+                <td></td>
+                <td> 
+            <input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+        </fieldset>
+        </form>
+        <script>
+            function fun()
+            {
+              var name = document.getElementById("t1");
+              var age = document.getElementById("t2");
+              var email = document.getElementById("t3");
+              var phone = document.getElementById("t4");
+              var city = document.getElementById("t5");
+              var address= document.getElementById("t6");         
+              var abc = city.options[city.selectedIndex].value; 
+              if(name.value == "" && age.value == "" && email.value == "" && phone.value == "" && abc == 0 && address.value == "")
+              {
+                        document.getElementById('p1').innerHTML = " *field are Required *";
+                        document.getElementById('p2').innerHTML = " *field are Required *";
+                        document.getElementById('p3').innerHTML = " *field are Required *";
+                        document.getElementById('p4').innerHTML = " *field are Required *";
+                        document.getElementById('p5').innerHTML = " *field are Required *";
+                        document.getElementById('p6').innerHTML = " *field are Required *";
+                        return false;
+              }
+
+              if (inputAlphabet(name)) { 
+if (textNumeric(age)) {
+if (emailValidation(email)) {
+if (phonenumber(phone)) {
+if (trueSelection(city)) {
+if (textAlphanumeric(address)) {
+return true;
+}
+}
+}
+}
+}
+}
+
+return false;
+
+
+function inputAlphabet(inputtext) {
+var alphaExp = /^[a-zA-Z]+$/;
+if (inputtext.value.match(alphaExp)) { 
+return true;
+} else {
+
+    if(name.value == "")
+      {
+        document.getElementById('p1').innerText = "* please Fill *";
+        name.focus();
+        return false;
+      }
+      else{
+      document.getElementById('p1').innerText = "* please use alphabets only *";
+      inputtext.focus();
+      return false;
+      } 
+}
+}
+
+function textNumeric(inputtext) {
+var numericExpression = /^[0-9]+$/;
+if (inputtext.value.match(numericExpression)) {
+return true;
+} else {
+    if(age.value == "")
+      {
+        document.getElementById('p2').innerText = "* please Fill *";
+        age.focus();
+        return false;
+      }
+      else{
+document.getElementById('p2').innerText = "*please use numbers*"; 
+inputtext.focus();
+return false;
+      }
+}
+}
+function emailValidation(inputtext) {
+var emailExp = /^[a-zA-Z\d._]{3,64}\@([a-z0-9]+)\.[a-z]+(.[a-z]+)?$/;
+if (inputtext.value.match(emailExp)) {
+return true;
+} else {
+    if(email.value == "")
+      {
+        document.getElementById('p3').innerText = "* please Fill *";
+        email.focus();
+        return false;
+      }else{  
+document.getElementById('p3').innerText = "* Please enter a valid email address *"; 
+inputtext.focus();
+return false;
+}
+}
+}
+
+
+function phonenumber(inputtext) {
+var phone1 = /\d{10}/;
+if (inputtext.value.match(phone1)) {
+return true;
+} else {
+    if(phone.value == "")
+      {
+        document.getElementById('p4').innerText = "* please Fill *";
+        phone.focus();
+        return false;
+      }
+      else{
+document.getElementById('p4').innerText = "* Please enter a valid 10 didit Number *"; 
+inputtext.focus();
+return false;
+      }
+}
+}
+
+
+function trueSelection(inputtext) {
+
+  var abc = city.options[city.selectedIndex].value; 
+
+if(abc == 0) 
+ { 
+   document.getElementById("p5").innerHTML = "Please Select any one option";
+   inputtext.focus();
+   return false;
+ }
+ else {
+return true;
+}
+}
+function textAlphanumeric(inputtext) {
+var alphaExp = /^[a-zA-Z0-9\s,.'-]{3,23}$/;
+if (inputtext.value.match(alphaExp)) {
+return true;
+} else {
+    if(address.value == "")
+      {
+        document.getElementById('p6').innerText = "* please Fill *";
+        address.focus();
+        return false;
+      }
+      else{
+document.getElementById('p6').innerText = "*Maximum length 23 &  Only Alphabet,digit,space,comma,dot(.),apostrophe(')),hyphen(-) *"; 
+inputtext.focus();
+return false;
+      }
+}
+}   
+}
+            
+        </script>
+    </body>
+</html>

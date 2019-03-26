@@ -1,0 +1,55 @@
+<html>
+<body>
+   <script>  
+       var str = "HELLO THIS is MY STRING";
+       var str1 = "hello this IS my string ";
+function lower(str) {
+ 
+  var result = '';
+  
+  for (var i = 0; i < str.length; i++) {
+  	
+  	var code = str.charCodeAt(i);
+    
+   
+    if (code > 64 && code < 91) {
+    
+      
+      result += String.fromCharCode(code + 32);
+    } else {
+            result += str.charAt(i);
+    }
+  } // 65 90 97 122
+  
+ 
+  return result;
+}
+
+console.log(lower(str));
+
+function upper(str1) {
+   var r = '';
+    for (var i = 0; i < str.length; i++) {
+  	
+  	var code = str.charCodeAt(i);
+    
+   
+    if (code > 96 && code < 123) {
+    
+      
+      r += String.fromCharCode(code - 32);
+    } else {
+   
+      r += str.charAt(i);
+    }
+  } // 65 90 97 122
+  
+ 
+  return r;
+
+}
+console.log(upper(str1));
+</script>
+</body>
+</html>
+

@@ -1,0 +1,18 @@
+<html>
+<body>
+   <script>
+       var str = " hello , are . hiare";
+       //document.write(str , "<br>");
+       var patt =/ are /g;
+       var str2 = str.replace(patt,"Fine .");
+       document.write(str2 +"<br>");
+
+
+       patt = /(hi)?are/g;
+       patt.compile(patt);
+       str2 = str.replace(patt,"Fine");
+       document.write(str2);
+
+   </script>
+</body>
+</html>

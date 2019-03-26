@@ -1,0 +1,30 @@
+<html>
+
+<body>
+
+<button onclick="fun()"> Open </button>
+<script>
+   function fun()
+     {
+        var h = document.querySelector('html');
+
+var p = document.createElement('div');
+p.setAttribute('class', 'msgBox');
+h.appendChild(p);
+
+var m = document.createElement('p');
+m.textContent = 'This is a message box';
+p.appendChild(m);
+
+var Btn = document.createElement('button');
+Btn.textContent = 'Close';
+p.appendChild(Btn);
+
+Btn.onclick = function() {
+  p.parentNode.removeChild(p);
+}
+
+}
+</script>
+</body>
+</html>

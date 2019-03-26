@@ -1,0 +1,22 @@
+<html>
+<body>
+<script>
+
+var getParams = function (url) {
+	var p = {};
+	var par = document.createElement('a');
+	par.href = url;
+	var query = par.search.substring(1);
+	var vars = query.split('&');
+	for (var i = 0; i < vars.length; i++) {
+		var pair = vars[i].split('=');
+		p[pair[0]] = decodeURIComponent(pair[1]);
+	}
+	document.write(par);
+};
+
+getParams(window.location.href);
+
+</script>
+</body>
+</html>

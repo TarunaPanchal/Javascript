@@ -1,0 +1,15 @@
+<html>
+<body>
+<p id="p"></p>
+<script>
+
+
+var t = '{"emp":[' +  
+' {"fname":"a","lname":"b" },' +
+' {"fname":"c","lname":"d" }]}';
+obj = JSON.parse(t);
+document.getElementById("p").innerHTML = obj.emp[1].fname + "" + obj.emp[1].lname;
+//document.write(obj.emp[1].fname);
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<body>
+   <form>
+   <label> Enter :- 
+   <input type="text" name="ex"></label>  
+   <input type="submit">
+</form>
+<script>
+  
+    var a = document.querySelector('form');
+    a.addEventListener('submit',function() {
+         
+         return fun(this.ex.value);
+
+    });
+
+ function fun(regxex) {
+  var emailreg = /^[a-zA-Z\d._]{3,64}\@([a-z0-9]+)\.[a-z]+(.[a-z]+)?$/;
+ 
+  if (regxex.match(emailreg)) {
+    alert("Valid");
+    return true; 
+  } else {
+    alert( "invalid!");
+    return false;
+  }
+}
+
+
+</script>
+</body>
+</html>

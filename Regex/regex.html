@@ -1,0 +1,36 @@
+<html>
+<body>
+   <form>
+   <label> Enter :- 
+   <input type="text" name="ex"></label>  
+   <input type="submit">
+</form>
+<script>
+  
+    var a = document.querySelector('form');
+    a.addEventListener('submit' , function() {
+         
+         return fun(this.ex.value);
+
+    });
+
+ function fun(regxex) {
+  var phRE = /\d{4}\-[A-Z]{4}\$\-[a-z]{2}\d{2}\-\d{4}/;
+
+ //   var re = /\(\d{3}\-[A-Z]{3}\-\d{4}\)/; \\(344-ASD-5678)
+ //   var name = /^[A-z][a-z]{8,12}/;
+ // var username = /^[^_\s\W\d]+$/;
+ 
+  if (regxex.match(phRE)) {
+    alert("Valid")
+    return true; 
+  } else {
+    alert( "invalid!" );
+    return false;
+  }
+}
+
+
+</script>
+</body>
+</html>

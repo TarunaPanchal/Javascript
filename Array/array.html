@@ -1,0 +1,26 @@
+<html>
+<body>
+<p> </p>
+<script>
+
+ const c = ['a','b','c','d'];
+ let inf = 'Hii ';
+ const p = document.querySelector('p');
+
+ for (let i=0; i < c.length; i++) { 
+   //  inf += c[i] + ','; 
+
+
+  if (i === c.length - 1) {
+    inf += 'and ' + c[i] + '.';
+  } else {
+    inf += c[i] + ', ';
+  }
+
+  }
+ p.textContent = inf;
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,112 @@
+<!--<html>
+    <body>
+        <script>
+            debugger;
+            var a = [8,7,9,10,3,4,1,12,6,5];
+           document.write("Unsorted Array:" + a);
+function swap(a, i, j) {
+    var tmp = a[i];
+    a[i] = a[j];
+    a[j] = tmp;
+}
+
+function max_heapify(a, i, length) {
+    while (true) {
+        var left = i*2 + 1;
+        var right = i*2 + 2;
+        var largest = i;
+
+        if (left < length && a[left] > a[largest]) {
+            largest = left;
+        }
+
+        if (right < length && a[right] > a[largest]) {
+            largest = right;
+        }
+
+        if (i == largest) {
+            break;
+        }
+
+        swap(a, i, largest);
+        i = largest;
+    }
+}
+
+function heapify(a, length) {
+    for (var i = Math.floor(length/2); i >= 0; i--) {
+        max_heapify(a, i, length);
+    }
+}
+
+function heapsort(a) {
+    heapify(a, a.length);
+
+    for (var i = a.length - 1; i > 0; i--) {
+        swap(a, i, 0);
+
+        max_heapify(a, 0, i-1);
+    }
+}
+
+document.write("Heap Sorted Array"+ heapsort(a));
+        </script>
+    </body>
+</html> -->
+
+<html>  
+  <head>  
+  </head>  
+  <body>
+  <p id="getHeapSort"></p> 
+  <span style="font-size:16px;"><span style="font-family: arial, helvetica, sans-serif;">     
+    </span></span>         
+   <script>
+       debugger;
+        var heapSort = function(array) {
+  var swap = function(array, firstIndex, secondIndex) {
+    var temp = array[firstIndex];
+    array[firstIndex] = array[secondIndex];
+    array[secondIndex] = temp;
+  };
+  var maxHeap = function(array, i) {
+    var l = 2 * i;
+    var r = l + 1;
+    var largest;
+    if (l < array.heapSize && array[l] > array[i]) {
+      largest = l;
+    } else {
+      largest = i;
+    }
+    if (r < array.heapSize && array[r] > array[largest]) {
+      largest = r;
+    }
+    if (largest != i) {
+      swap(array, i, largest);
+      maxHeap(array, largest);
+    }
+  };
+  var buildHeap = function(array) {
+    array.heapSize = array.length;
+    for (var i = Math.floor(array.length / 2); i >= 0; i--) {
+      maxHeap(array, i);
+    }
+  };
+  buildHeap(array);
+  for (var i = array.length-1; i >= 1; i--) {
+    swap(array, 0, i);
+    array.heapSize--;
+    maxHeap(array, 0);
+       
+    document.getElementById("getHeapSort").innerHTML = document.getElementById("getHeapSort").innerHTML + a + "<br>" + "<br>";
+  }
+};
+var a = [8,7,9,10,3,4,1,12,6,5];
+document.getElementById("getHeapSort").innerHTML = a + "<br>" + "<br>";
+heapSort(a);
+         
+
+   </script>
+</body>
+
+</html> 

@@ -1,0 +1,30 @@
+<html>
+<body>
+   <lable for="co"> Select :- </lable>
+   <select  id="co">
+     <option value=""> colour  </option>
+     <option value="black"> black</option>
+     <option value="white"> white </option>
+     
+      
+</select>
+<h6> COLOUR </h6>
+
+<script>
+    var a = document.querySelector('select');
+    var h = document.querySelector('html');
+
+
+      document.body.style.padding = '10px';
+   
+      function update(bgColor, textColor) {
+       h.style.backgroundColor = bgColor;
+       h.style.color = textColor;
+        }
+
+       a.onchange = function() {
+               (a.value === 'black' ) ? update('black','white') : update('white','black');
+        }
+</script>
+</body>
+</html>

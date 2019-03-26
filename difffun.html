@@ -1,0 +1,42 @@
+<html>
+<body>
+   <input tyoe="text">
+  <p></p>
+
+<script>
+   var i = document.querySelector('input');
+   var p = document.querySelector('p');
+   
+function squared(n) {
+  return n * n;
+}
+
+function cubed(n) {
+  return n * n * n;
+}
+
+function factorial(n) {
+  var x = n;
+  while (x > 1) {
+    n *= x-1;
+    x--;
+  }
+  return n;
+}
+
+
+i.onchange = function() {
+  var n = i.value;
+  if (isNaN(n)) {
+    p.textContent = 'You need to enter a number!';
+  } else {
+    p.textContent = n + ' squared is ' + squared(n) + '. ' +
+                       n + ' cubed is ' + cubed(n) + '. ' +
+                       n + ' factorial is ' + factorial(n) + '.';
+  }
+}
+</script>
+
+
+</body>
+</html>

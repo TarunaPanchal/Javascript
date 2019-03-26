@@ -1,0 +1,19 @@
+<html>
+<body>
+<script>
+   
+   Array.prototype.fun = function()  {
+
+   for (var i=0; i<this.length ; i++ )
+     {
+        this[i] = this[i].toUpperCase();
+     }
+   };
+   var a = ["ab","bc","cd"];
+   a.fun();
+   console.log(a);
+      
+
+</script>
+</body>
+</html>

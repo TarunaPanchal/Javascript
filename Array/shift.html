@@ -1,0 +1,19 @@
+<html>
+<body>
+<button onclick="fun()"> Shift </button>
+<p id='p'> </p> 
+<script>
+
+var a = ["a","x","b"];
+document.getElementById("p").innerHTML = a;
+function fun()
+{
+     // a.shift();
+    //a.sort();
+   a.splice(1,1,"c","d","e");
+   document.getElementById("p").innerHTML = a;
+}
+
+</script>
+</body>
+</html>

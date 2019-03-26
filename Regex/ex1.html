@@ -1,0 +1,33 @@
+<html>
+<body>
+     <form>
+   <label> Enter +---- 14digit :- 
+   <input type="text" name="x"></label>  
+   <input type="submit">
+</form>
+<script>
+  
+    var a = document.querySelector('form');
+    a.addEventListener('submit' , function() {
+         
+         return fun(this.x.value);
+
+    });
+
+ function fun(a) {
+ 
+    var b = /\+\d{4}\s\d{14}/;
+
+  if (a.match(b)) {
+    alert("Valid")
+    return true; 
+  } else {
+    alert( " invalid!" );
+    return false;
+  }
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <p id="p"></p>
+        <script>
+   window.onload = fecha;
+
+var a = new Date();
+
+function fecha() {
+  var di;
+  di = a.getDay();
+  var b = setInterval(a.getSeconds(), 1);
+  console.log(b);
+  var day = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  var c ='Today is: ' +day[di] +'<br>' + ' Current Time : ' +  time() +  '<br>';
+  document.getElementById('p').innerHTML = c;  
+  setTimeout(() => {fecha();}, 50);
+}
+
+function time() {
+  var d = new Date();
+  var t = d.toLocaleTimeString();
+
+  return t;
+}
+        </script>
+    </body>
+</html>

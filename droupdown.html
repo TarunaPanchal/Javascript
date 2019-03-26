@@ -1,0 +1,57 @@
+<html>
+<body>
+   <lable for="sub"> Select :- </lable>
+   <select  id="sub">
+     <option value=""> Subject  </option>
+     <option value="php"> php  </option>
+     <option value="net"> net </option>
+     <option value="js"> js </option>
+     <option value="bd"> bd  </option>
+     <option value="os"> os </option>
+</select>
+<p> </p>
+
+<script>
+  var a = document.querySelector('select');
+  var b = document.querySelector('p');
+
+  a.addEventListener('change',fun);
+  function fun()   {
+         var choice = a.value;
+
+      /*   if(choice === 'php')     {
+              b.textContent = 'Hypertext preprocessor' ;
+          }   else if(choice === 'net')      {
+              b.textContent = ' Dot net' ;
+          }   else if(choice === 'js')     {
+              b.textContent = 'JavaScript' ;
+          }  else if(choice === 'bd')   {
+              b.textContent = 'Big data' ;
+          } else if(choice === 'os')   {
+              b.textContent = 'Operating System' ;
+          }   else    {    
+          b.textContent = '' ;
+         }*/
+
+
+    switch(choice)
+      {
+         case 'php' :  b.textContent = 'Hypertext preprocessor' ;
+                       break;
+         case 'net' :  b.textContent = ' Dot net' ;
+                       break;
+         case 'js' :   b.textContent = ' JavaScript' ;
+                       break;
+         case 'bd' :   b.textContent = 'Big data' ;
+                       break;
+         case 'os' :   b.textContent = 'Operating System' ;
+                       break;
+         default   :   b.textContent = '' ;
+      }
+          
+   }
+
+</script>
+   
+</body>
+</html>

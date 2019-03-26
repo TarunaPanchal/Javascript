@@ -1,0 +1,49 @@
+<html>
+   <body>
+          Enter digit  : <input type="text" id="digits">
+          
+          <input type="button" value="CLICK" onclick="fun()">
+          <input type="text" readonly="true" placeholder="the result" id="result" hidden/>
+        <script>
+
+           var a = document.getElementById("digits");
+           var rezultat = document.getElementById("result");
+           //debugger;
+          
+               
+    
+            function fun()
+            {
+                            
+             var patt = /^[0-9]{3,7}$/;
+             
+             if(a.value.match(patt))
+             {
+                // return true;
+                sum = 0 ;
+                var x = a.value;
+                while (x) {
+                     sum += x % 10;
+                      x = Math.floor(x / 10);
+                 }
+                 
+                 rezultat.value = sum;
+                if(rezultat.value < 13)
+                {
+                    alert(sum+"=true")
+                }
+                else{
+                    alert(sum+"=false")
+                }
+                
+             }
+             else{
+                     alert("enter min 3 and max 7 digit");
+             }
+            }
+            
+
+
+        </script>
+   </body>
+</html>
